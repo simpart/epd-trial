@@ -4,13 +4,7 @@
 ---
 
 ## 電子ペーパーとは
-メリット
-- 低消費電力
-- 自然な表示
-
-デメリット
-- 描画速度が遅い
-- 価格が高い
+![chart](https://simpart.github.io/epd-trial/img/epdchart.png)
 
 ---
 
