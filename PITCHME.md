@@ -59,6 +59,7 @@
 ---
 
 ## お天気APIアカウント作成
+OpenWeatherMap
 
 ---
 
