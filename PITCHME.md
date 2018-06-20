@@ -5,11 +5,6 @@
 ---
 
 ## 電子ペーパーとは
-![chart](https://simpart.github.io/epd-trial/img/epdchart.png)
-
----
-
-## 利用事例
 - 電子書籍リーダー
 - 災害時案内板
 - 時刻表
@@ -17,8 +12,15 @@
 
 ---
 
+## 電子ペーパーの特徴
+![chart](https://simpart.github.io/epd-trial/img/epdchart.png)
+
+---
+
 ## お手軽電子ペーパー
 ワイズ・ラブ社 Y-Con W042(R)
+
+
 
 ---
 
