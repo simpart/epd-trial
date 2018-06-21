@@ -1,4 +1,8 @@
-# 半田付け
+# Overview
+電子ペーパーを手軽に試せるサンプルキットです。
+電子ペーパーとラズペリーパイを用いたお天気表示ガジェットの作り方、中身のソースコードをまとめています。
+
+説明,作成手順概要は[こちら](https://gitpitch.com/simpart/epd-trial/master?grs=github&t=sky)
 
 
 # OSイメージ作成
