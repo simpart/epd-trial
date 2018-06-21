@@ -18,7 +18,7 @@ DIY お天気ガジェット <br>
 ---
 
 ## 超お手軽電子ペーパー
-ワイズ・ラブ社 Y-Con W042
+ワイズ・ラブ社 Y-Con W042R
 ![ycon](https://simpart.github.io/epd-trial/img/epd3.jpg)
 
 ---
