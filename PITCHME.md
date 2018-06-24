@@ -4,9 +4,9 @@
 
 ---
 
-## 電子ペーパー(E-Paper Display)とは
+## 電子ペーパーとは
 - 電子書籍リーダー
-- 災害時案内板
+- 災害用案内板
 - 時刻表
 - etc...
 
@@ -24,26 +24,29 @@
 ---
 
 ## お天気ガジェットの作成
+### 今日は傘が必要かどうかを表示
+
 - 12時間以内の天気情報を集計
 - お天気アイコンを表示
 
-今日は傘が必要かどうかを表示
+
 
 ---
 
-## 機能構成概要
+## 機能構成
 ![overview](https://simpart.github.io/epd-trial/img/overview.png)
 
 ---
 
 ## 用意するもの
-- Y-Con W042 or W042R
+- Y-Con P027B or W042 or W042R
 - Raspberry Pi
 - ピンヘッダ (2.54mmピッチ)
 - ジャンパーワイヤー (メス-メス)
+- 半田付けセット
 - お天気APIアカウント (フリープラン)
 
-¥1,7000くらい
+¥1,7000 〜 ¥20,000
 
 ---
 
@@ -53,11 +56,50 @@
 ---
 
 ## ラズパイ設定
-- OSイメージ作成
+- OSイメージ作成(省略)
 - WiFi設定
 - UART有効化
-- サンプルツールインストール
+- お天気ツールインストール
 
+---
+
+## WiFi設定
+
+```
+sudo su
+wpa_passphrase (SSID) (pass) >> /etc/wpa_supplicant/wpa_supplicant.conf
+exit
+```
+---
+
+# UART有効化,シリアル通信準備
+```
+vi /boot/cmdline.txt
+# 以下に置き換え
+dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait
+
+####################
+
+sudo systemctl stop serial-getty@ttyS0.service
+sudo systemctl disable serial-getty@ttyS0.service
+
+sudo apt-get install screen
+sudo reboot
+```
+---
+
+## お天気ツールインストール
+
+```
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get install apache2 git php5-curl
+sudo sytemctl apache2 start 
+cd /var/www/html/
+sudo git clone https://github.com/simpart/epd-trial.git
+sudo git clone https://github.com/simpart/tetraring4php.git epd-trial/src/php/ttr
+chown -R www-data:www-data ./epd-trial/
+```
 ---
 
 ## お天気APIアカウント作成
@@ -65,8 +107,8 @@
 
 ---
 
-## サンプルツールアクセス
-- Webアクセス(http://(your_ip)/epd_trial/)
+## お天気ツールアクセス
+- Webアクセス(http://(raspi_addr)/epd_trial/)
 - APIキー,[ロケーション](https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=35.6662&lon=139.3726&zoom=7)入力
 - 更新ボタン押下
 
