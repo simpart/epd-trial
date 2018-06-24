@@ -1,7 +1,7 @@
 <?php
 /**
- * @file cur.php
- * @brief get current contents of e-paper
+ * @file update.php
+ * @brief update contents of e-paper
  */
 require_once(__DIR__ . '/../ttr/class.php');
 require_once(__DIR__ . '/../define.php');
@@ -55,8 +55,17 @@ try {
     
     
     /* update e-paper display */
-    
-    
+    $type    = intval($_POST["type"]);
+    $img_pth = "/img/";
+    if (EPD_TYPE_1 === $type) {
+        $img_pth .= "p027b/";
+    } else if (EPD_TYPE_2 === $type) {
+        $img_pth .= "w042/";
+    } else if (EPD_TYPE_3 === $type) {
+        $img_pth .= "w042r/";
+    }
+    $img_pth .= $res_str . ".bmp";
+    system("sudo python " . __DIR__ . "/../../py/display.py " . __DIR__ . "/../../.." . $img_pth);
     
     echo json_encode(
         array(

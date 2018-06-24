@@ -80,9 +80,9 @@ try {
         },
         update : (ldg) => {
             try {
-                ttrg.rest.get(
+                ttrg.rest.post(
                     "./src/php/conts/update.php",
-                    null,
+                    { 'type' : thisobj.comp.type.value() },
                     (ret,obj) => {
                         try {
                             ldg.visible(false);
