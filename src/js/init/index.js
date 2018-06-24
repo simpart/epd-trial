@@ -50,6 +50,17 @@ config.comp.loc = new Input({
     require : true
 });
 
+config.comp.type = new DropDown({
+    style       : { 'margin-left' : '20px' },
+    horizon     : true,
+    label       : "Type : ",
+    addList     : ["Y-Con P027B", "Y-Con W042", "Y-Con W042R"],
+    size        : new mf.Param(150, 30),
+    changeEvent : (dd) => {
+        config.seltype();
+    }
+});
+
 
 let cnfmsg = new Msgdlg({
     color  : new mf.Color(210,210,240)
@@ -90,12 +101,7 @@ let start = (rc) => {
                                     size : 30
                                 })
                             }),
-                            new DropDown({
-                                horizon : new mf.Param(true, 20),
-                                label   : "Type : ",
-                                addList :  ["Y-Con W042(R)", "Y-Con P027B"],
-                                size    : new mf.Param(150, 30)
-                            }),
+                            config.comp.type,
                             new Text({
                                 text : "Current : ",
                                 size : 30

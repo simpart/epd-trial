@@ -17,27 +17,26 @@ try {
     thisobj = {
         comp : {
             apikey : null,
-            loc    : null
+            loc    : null,
+            type   : null
         },
+        current : null,
         init : () => {
             try {
                 ttrg.rest.get(
                     "./src/php/conts/current.php",
                     null,
-                    (ret) => {
+                    (ret, obj) => {
                         try {
-                            thisobj.comp.curfrm.addChild(
-                                new Image({
-                                    path : "./img/"+ ret.message +".bmp",
-                                    size : new mf.Param('100%', '100%')
-                                })
-                            );
+                            obj.current = ret.message + ".bmp";
+                            obj.seltype();
+                            return;
                         } catch (e) {
                             console.error(e.stack);
                             throw e;
                         }
                     },
-                    null
+                    thisobj
                 );
                 
                 ttrg.rest.get(
@@ -58,6 +57,39 @@ try {
                     },
                     null
                 );
+            } catch (e) {
+                console.error(e.stack);
+                throw e;
+            }
+        },
+        seltype : () => {
+            try {
+                let img_pth = "./img/";
+                if (0 === thisobj.comp.type.value()) {
+                    img_pth += "p027b/";
+                } else if (1 === thisobj.comp.type.value()) {
+                    img_pth += "w042/";
+                } else if (2 === thisobj.comp.type.value()) {
+                    img_pth += "w042r/";
+                }
+                
+                if (0 === thisobj.comp.curfrm.child().length) {
+                    thisobj.comp.curfrm.addChild(
+                        new Image({
+                            path : img_pth + thisobj.current,
+                            size : new mf.Param('100%', '100%')
+                        })
+                    );
+                } else {
+                    let old = thisobj.comp.curfrm.child()[0];
+                    thisobj.comp.curfrm.updChild(
+                        old,
+                        new Image({
+                            path : img_pth + thisobj.current,
+                            size : new mf.Param('100%', '100%')
+                        })
+                    );
+                }
             } catch (e) {
                 console.error(e.stack);
                 throw e;
