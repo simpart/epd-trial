@@ -72,12 +72,11 @@ exit
 ```
 ---
 
-# UART有効化,シリアル通信準備
+### UART有効化,シリアル通信準備
 ```
 vi /boot/cmdline.txt
 # 以下に置き換え
 dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait
-
 ####################
 
 sudo systemctl stop serial-getty@ttyS0.service
@@ -88,7 +87,7 @@ sudo reboot
 ```
 ---
 
-## お天気ツールインストール
+### お天気ツールインストール
 
 ```
 sudo apt-get update -y
