@@ -23,13 +23,11 @@
 
 ---
 
-## お天気ガジェットの作成
+## お天気ガジェット 動作概要
 ### 今日は傘が必要かどうかを表示
 
 - 12時間以内の天気情報を集計
 - お天気アイコンを表示
-
-
 
 ---
 
@@ -72,9 +70,9 @@ exit
 ```
 ---
 
-### UART有効化,シリアル通信準備
+## UART有効化,シリアル通信準備
 ```
-vi /boot/cmdline.txt
+sudo vi /boot/cmdline.txt
 # 以下に置き換え
 dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait
 ####################
@@ -87,7 +85,7 @@ sudo reboot
 ```
 ---
 
-### お天気ツールインストール
+## お天気ツールインストール
 
 ```
 sudo apt-get update -y
