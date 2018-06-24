@@ -2,11 +2,19 @@
  * @file config.js
  */
 let mf = require('mofron');
+require('expose-loader?app!../conf/namesp.js');
+let Msgdlg = require('mofron-comp-msgdlg');
 let Image = require('mofron-comp-image');
 
 require('tetraring4js');
 
 let thisobj = null;
+
+let errmsg = new Msgdlg({
+    color   : new mf.Color(255,200,200),
+    title   : "Error",
+    visible : false
+});
 
 try {
 
@@ -28,8 +36,8 @@ try {
                     null,
                     (ret, obj) => {
                         try {
-                            obj.current = ret.message + ".bmp";
-                            obj.seltype();
+                            //obj.current = ret.message + ".bmp";
+                            obj.updconts(ret.message);
                             return;
                         } catch (e) {
                             console.error(e.stack);
@@ -64,6 +72,43 @@ try {
         },
         seltype : () => {
             try {
+                thisobj.updconts(thisobj.current);
+            } catch (e) {
+                console.error(e.stack);
+                throw e;
+            }
+        },
+        update : (ldg) => {
+            try {
+                ttrg.rest.get(
+                    "./src/php/conts/update.php",
+                    null,
+                    (ret,obj) => {
+                        try {
+                            ldg.visible(false);
+                            if (false === ret.result) {
+                                if (null === errmsg.parent()) {
+                                    app.root.addChild(errmsg);
+                                }
+                                errmsg.text(ret.message);
+                                errmsg.visible(true);
+                                return;
+                            }
+                            obj.updconts(ret.message);
+                        } catch (e) {
+                            console.error(e.stack);
+                            throw e;
+                        }
+                    },
+                    thisobj
+                );
+            } catch (e) {
+                console.error(e.stack);
+                throw e;
+            }
+        },
+        updconts : (wet) => {
+            try {
                 let img_pth = "./img/";
                 if (0 === thisobj.comp.type.value()) {
                     img_pth += "p027b/";
@@ -72,11 +117,12 @@ try {
                 } else if (2 === thisobj.comp.type.value()) {
                     img_pth += "w042r/";
                 }
+                thisobj.current = wet;
                 
                 if (0 === thisobj.comp.curfrm.child().length) {
                     thisobj.comp.curfrm.addChild(
                         new Image({
-                            path : img_pth + thisobj.current,
+                            path : img_pth + thisobj.current + ".bmp",
                             size : new mf.Param('100%', '100%')
                         })
                     );
@@ -85,38 +131,11 @@ try {
                     thisobj.comp.curfrm.updChild(
                         old,
                         new Image({
-                            path : img_pth + thisobj.current,
+                            path : img_pth + thisobj.current + ".bmp",
                             size : new mf.Param('100%', '100%')
                         })
                     );
                 }
-            } catch (e) {
-                console.error(e.stack);
-                throw e;
-            }
-        },
-        updconts : (ldg) => {
-            try {
-                ttrg.rest.get(
-                    "./src/php/conts/update.php",
-                    null,
-                    (ret) => {
-                        try {
-                            thisobj.comp.curfrm.updChild(
-                                thisobj.comp.curfrm.child()[0],
-                                new Image({
-                                    path : "./img/"+ ret.message +".bmp",
-                                    size : new mf.Param('100%', '100%')
-                                })
-                            );
-                            ldg.visible(false);
-                        } catch (e) {
-                            console.error(e.stack);
-                            throw e;
-                        }
-                    },
-                    null
-                );
             } catch (e) {
                 console.error(e.stack);
                 throw e;

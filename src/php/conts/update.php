@@ -11,11 +11,18 @@ try {
     $jcnf = file_get_contents(CNF_PATH);
     $cnf  = json_decode($jcnf);
     
+    if (0 === strcmp("", $cnf->api->key)) {
+        throw new Exception('api key is null');
+    }
+
     /* get weather info */
-    $uri  = API_URI . "?q=" .  $cnf->api->loc . "&APPID=" . $cnf->api->key;  // "605634874fe5c002c5cd7d873b829aa1";
+    $uri  = API_URI . "?q=" .  $cnf->api->loc . "&APPID=" . $cnf->api->key;
     $rest = new \ttr\rest\RestSender($uri);
     $jret = $rest->sendGet();
     $pret = json_decode($jret);
+    if (200 != $pret->cod) {
+        throw new Exception($pret->message);
+    }
     
     $wid[] = $pret->list[0]->weather[0]->id;
     $wid[] = $pret->list[1]->weather[0]->id;
@@ -42,9 +49,14 @@ try {
         $res_str = "cloud";
     }
     
-    /* update current weather */
+    /* update current weather config */
     $cnf->epd->cur = $res_str;
     file_put_contents(CNF_PATH, json_encode($cnf));
+    
+    
+    /* update e-paper display */
+    
+    
     
     echo json_encode(
         array(

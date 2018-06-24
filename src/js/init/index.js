@@ -114,7 +114,7 @@ let start = (rc) => {
                                 clickEvent : new mf.Param(
                                     (btn, prm) => {
                                         prm.visible(true);
-                                        config.updconts(prm);
+                                        config.update(prm);
                                     },
                                     loading
                                 )
