@@ -76,7 +76,7 @@ sync
 ```
 sudo su
 wpa_passphrase (SSID) (pass) >> /etc/wpa_supplicant/wpa_supplicant.conf
-exit
+reboot
 ```
 ---
 
