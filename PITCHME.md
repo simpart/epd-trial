@@ -56,7 +56,7 @@ ssmjp 2018/06/26 @Ki4mTaria
 ## ラズパイ設定
 - OSイメージ作成
 - WiFi設定
-- UART有効化
+- UART設定
 - お天気ツールインストール
 
 ---
@@ -80,7 +80,7 @@ exit
 ```
 ---
 
-### UART有効化,シリアル通信準備
+## UART設定
 ```
 sudo vi /boot/cmdline.txt
 # 以下に置き換え
