@@ -118,9 +118,12 @@ chown -R :www-data ./epd-trial/
 ---
 
 ## お天気ツールアクセス
-- Webアクセス(http://(raspi_addr)/epd_trial/)
-- APIキー,[ロケーション](https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=35.6662&lon=139.3726&zoom=7)入力
-- 更新ボタン押下
+Webアクセス(http://(raspi_addr)/epd_trial/)
+
+![demo](https://simpart.github.io/epd-trial/img/demo.png)
+<br>
+
+[ロケーション一覧](https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=35.6662&lon=139.3726&zoom=7)
 
 ---
 
