@@ -101,7 +101,7 @@ sudo reboot
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get install apache2 git php php-curl
-sudo sytemctl apache2 start 
+sudo /etc/init.d/apache2 start
 cd /var/www/html/
 sudo git clone https://github.com/simpart/epd-trial.git
 sudo git clone https://github.com/simpart/tetraring4php.git epd-trial/src/php/ttr
