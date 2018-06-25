@@ -86,6 +86,7 @@ sudo vi /boot/cmdline.txt
 # 以下に置き換え
 dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait
 ####################
+sudo echo enable_uart=1 >> /boot/config.txt
 
 sudo systemctl stop serial-getty@ttyS0.service
 sudo systemctl disable serial-getty@ttyS0.service
