@@ -69,8 +69,6 @@ dd if=path/to/2018-04-18-raspbian-stretch-lite.img of=/dev/sdc bs=1M
 sync
 ```
 
----
-
 ## WiFi設定
 
 ```
