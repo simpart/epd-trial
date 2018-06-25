@@ -107,7 +107,8 @@ sudo /etc/init.d/apache2 start
 cd /var/www/html/
 sudo git clone https://github.com/simpart/epd-trial.git
 sudo git clone https://github.com/simpart/tetraring4php.git epd-trial/src/php/ttr
-chown -R www-data:www-data ./epd-trial/
+chown -R :www-data ./epd-trial/
+# 必要に応じてwww-dataに権限付与を行う
 ```
 ---
 
