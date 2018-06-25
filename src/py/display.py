@@ -7,7 +7,7 @@ import time
 
 if __name__ == "__main__":
     try:
-	print(sys.argv[1])
+	#print(sys.argv[1])
         #print("start")
         ser = serial.Serial('/dev/ttyS0', 115200, timeout=60)
         

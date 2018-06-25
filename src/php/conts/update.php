@@ -37,13 +37,13 @@ try {
     }
     
     $res_str = null;
-    if (8 === ($res / 100)) {
+    if (8 === ($res_id / 100)) {
         $res_str = "sun";
-    } else if (7 === ($res / 100)) {
+    } else if (7 === ($res_id / 100)) {
         $res_str = "rain";
-    } else if (6 === ($res / 100)) {
+    } else if (6 === ($res_id / 100)) {
         $res_str = "sun";
-    } else if (5 === ($res / 100)) {
+    } else if (5 === ($res_id / 100)) {
         $res_str = "rain";
     } else {
         $res_str = "cloud";
@@ -65,6 +65,7 @@ try {
         $img_pth .= "w042r/";
     }
     $img_pth .= $res_str . ".bmp";
+# var_dump("sudo python " . __DIR__ . "/../../py/display.py " . __DIR__ . "/../../.." . $img_pth);
     system("sudo python " . __DIR__ . "/../../py/display.py " . __DIR__ . "/../../.." . $img_pth);
     
     echo json_encode(
