@@ -100,7 +100,7 @@ sudo reboot
 ```
 sudo apt-get update -y
 sudo apt-get upgrade -y
-sudo apt-get install apache2 git php5-curl
+sudo apt-get install apache2 git php php-curl
 sudo sytemctl apache2 start 
 cd /var/www/html/
 sudo git clone https://github.com/simpart/epd-trial.git
