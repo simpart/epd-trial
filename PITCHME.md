@@ -90,7 +90,8 @@ dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=d
 sudo systemctl stop serial-getty@ttyS0.service
 sudo systemctl disable serial-getty@ttyS0.service
 
-sudo apt-get install screen
+sudo apt-get install screen python-dev python-pip
+sudo pip install pyserial
 sudo reboot
 ```
 ---
