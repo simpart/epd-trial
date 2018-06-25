@@ -80,7 +80,7 @@ exit
 ```
 ---
 
-## UART有効化,シリアル通信準備
+### UART有効化,シリアル通信準備
 ```
 sudo vi /boot/cmdline.txt
 # 以下に置き換え
