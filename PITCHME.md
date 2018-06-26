@@ -17,7 +17,7 @@ ssmjp 2018/06/26 @Ki4mTaria
 
 ---
 
-## 超お手軽電子ペーパー
+## お手軽電子ペーパー
 ワイズ・ラブ社 Y-Con W042R<br>
 ![ycon](https://simpart.github.io/epd-trial/img/epd3.jpg)
 
