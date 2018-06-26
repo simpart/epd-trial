@@ -130,7 +130,7 @@ Webアクセス(http://(raspi_addr)/epd_trial/)
 ---
 
 ## 完成
-![demo](https://simpart.github.io/epd-trial/img/demo.gif)
+![demo](https://simpart.github.io/epd-trial/img/demo2.gif)
 
 
 
