@@ -63,7 +63,7 @@ ssmjp 2018/06/26 @Ki4mTaria
 
 ## OSイメージ作成
 
-```
+```bash
 dd if=path/to/2018-04-18-raspbian-stretch-lite.img of=/dev/sdc bs=1M
 # sdcの部分は環境に合わて変更させる。
 sync
@@ -71,7 +71,7 @@ sync
 
 ## WiFi設定
 
-```
+```bash
 sudo su
 wpa_passphrase (SSID) (pass) >> /etc/wpa_supplicant/wpa_supplicant.conf
 reboot
@@ -79,7 +79,7 @@ reboot
 ---
 
 ## UART設定
-```
+```bash
 sudo vi /boot/cmdline.txt
 # 以下に置き換え
 dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait
@@ -99,7 +99,7 @@ sudo reboot
 
 ## お天気ツールインストール
 
-```
+```bash
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get install apache2 git php php-curl
