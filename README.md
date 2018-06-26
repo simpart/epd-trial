@@ -1,4 +1,4 @@
-![gadget](https://simpart.github.io/epd-trial/img/gadget.jpg)
+![gadget](https://simpart.github.io/epd-trial/img/gadget2.jpg)
 
 # 概要
 電子ペーパーを手軽に試せるサンプルキットです。<br>
