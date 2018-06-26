@@ -1,3 +1,5 @@
+![gadget](https://simpart.github.io/epd-trial/img/gadget.jpg)
+
 # 概要
 電子ペーパーを手軽に試せるサンプルキットです。<br>
 電子ペーパーとラズペリーパイを用いたお天気表示ガジェットの作り方、中身のソースコードをまとめています。
